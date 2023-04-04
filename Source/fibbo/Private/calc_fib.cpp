@@ -4,14 +4,19 @@
 #include "calc_fib.h"
 
 
-void Ucalc_fib::fibo(const int& power,int &out_fib)
+
+
+void Ucalc_fib::fibo(const int& power,const bool &reset,int &out_fib, bool &reached)
 {
-    static int t1 = 0, t2 = 1, nextterm = 0;
+    FTimerHandle InputTimeHandle;
+    static int t1 = 0 ;
+    static int t2 = 1;
+    static int nextterm = 0;
     static int i = 1;
-    static bool reset = false;
-	if (reset == false)
-	{
-        while(i<=power) {
+    static bool lma;
+    if (reset == false)
+    {
+        while (i <= power) {
             // Prints the first two terms.
             if (i == 1) {
                 out_fib = t1;
@@ -29,13 +34,22 @@ void Ucalc_fib::fibo(const int& power,int &out_fib)
             out_fib = nextterm;
             i++;
             return;
-        } 
-        if (i > power) {
-            i = 1;
-            t1 = 0;
-            t2 = 1;
-            nextterm = 0;
+        }
+        if (i > power)
+        {
+            reached = true;
             return;
         }
-	}
+    }
+    else
+    {
+        i = 1;
+        t1 = 0;
+        t2 = 1;
+        nextterm = 0;
+        out_fib = nextterm;
+        reached = false;
+        return;
+    }
+
 }
