@@ -13,5 +13,10 @@ UCLASS()
 class FIBBO_API Ucalc_fib : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+		UFUNCTION(BlueprintCallable, Category = "Print Copy")
+		static void fibo(const int &power, int &out_fib);
+
+
+
 	
 };

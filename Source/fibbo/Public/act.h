@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "MyActor.generated.h"
+#include "act.generated.h"
 
 UCLASS()
-class FIBBO_API AMyActor : public AActor
+class FIBBO_API Aact : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	AMyActor();
+	Aact();
 
 protected:
 	// Called when the game starts or when spawned
